@@ -1,0 +1,19 @@
+flowchart TD
+    Browser[Usuario / navegador] --> Entry[public/index.php]
+    Entry --> Auth[includes/bootstrap.php<br/>Sesión, CSRF y permisos]
+    Entry --> Dashboard[modules/dashboard.php]
+    Entry --> Products[modules/products.php]
+    Entry --> Clients[modules/clients.php]
+    Entry --> Providers[modules/providers.php]
+    Entry --> Sales[modules/sales.php]
+    Auth --> DB[config/database.php<br/>PDO]
+    Dashboard --> DB
+    Products --> DB
+    Clients --> DB
+    Providers --> DB
+    Sales --> DB
+    DB --> MySQL[(MySQL: frey_studio)]
+    MySQL --> Users[usuarios / empleados]
+    MySQL --> Catalog[categorias / productos / inventario / proveedores]
+    MySQL --> Customers[clientes / pedidos / detalle_pedido]
+    MySQL --> Transactions[ventas / detalle_venta / pagos]
